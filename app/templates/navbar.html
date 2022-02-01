@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-danger py-4" style='background-color:rgb(164, 48, 48)'>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src='{{ url_for('static',filename='logo.jpeg')}}' class='rounded-3' alt="" width="90" height="75" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse  navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto text-center fs-3  fw-bolder mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="/categories/Technology">Tech</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/categories/Science">Science</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/categories/Politics">Politics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/categories/Business">Business</a>
+          </li>        
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/categories/Entertainment">Entertainment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="/categories/Sports">Sports</a>
+          </li>
+        </ul>
+        <form class=" d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search News" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search </button>
+        </form>
+      </div>
+    </div>
+  </nav>
