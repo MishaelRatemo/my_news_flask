@@ -1,0 +1,60 @@
+<main class=" d-flex justify-content-center">
+    <video class="rounded-pill" width="720" height="240"  loop autoplay muted>
+    <source src="{{ url_for('static', filename='banner.mp4')}}" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+</main>
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% block title %}
+    News |Home
+
+{% endblock %}
+
+{% block styles %}
+<!-- {{super}} -->
+<link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}">
+{% endblock %}
+
+{% block content %}
+    
+
+    <!-- {% block navbar %}
+    {% include 'navbar.html' %}
+    {% endblock %} -->
+
+    <main class='container-fluid' >
+       <div class='row'>
+           <div class='col-10'>
+            <h1 class='text-center text-white p-2'>Top News Headlines</h1>
+            <div class="d-flex justify-content-around container-fluid flex-wrap">
+                {{ macros.displaySourcesList(headlines) }}
+            </div>
+
+           </div>
+           <div class='col-2'>
+               <h3>Source</h3>
+               <ul>
+                   <li>mimi</li>
+                   <li>mimi</li>
+                   <li>mimi</li>
+                   <li>mimi</li>
+                   <li>mimi</li>
+               </ul>
+
+           </div>
+
+       </div>
+
+    </main>
+
+
+<!-- 
+        <h2> Headlines </h2>
+        <ul>
+            {% for headline in headlines %}
+            <li>{{headline.title}}</li>
+            {% endfor %}
+        </ul>
+          -->
+{% endblock %}
