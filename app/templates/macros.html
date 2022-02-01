@@ -1,0 +1,18 @@
+{%  macro  displaySourcesList(newslist)  %}
+
+{% for headlines in newslist  %}
+<div class="card m-2" style="width: 18rem;">
+    <img src="{{ headlines.article_image }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{headlines.title | truncate(45) }}</h5>
+      <p class="card-text">{{ headlines.description |truncate(60) }}</p>
+      <div class=" d-flex justify-content-between ">
+          <p> by {{ headlines.author}}</p>
+          <p>{{ headlines.time_published }}</p>
+      </div>
+      <a href="{{headlines.url}}" class=" text-primary">Read more</a>
+    </div>
+</div>
+{% endfor%}
+{% endmacro %}
+
