@@ -24,16 +24,16 @@ def config_request(app):
     news_base_url = app.config['NEWS_API_BASE_URL']
 
 
-def get_sources(news):
+def get_sources():
     ''' Method gettingt he javascript object notations(JSON) response to url requests'''
-    get_sources_url = news_base_url.format(news, api_key)
+    get_sources_url = f'https://newsapi.org/v2/top-headlines/sources?apiKey={api_key}'
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
 
         sources_results = None
-        if get_sources_response['articles']:
-            sources_results_list = get_sources_response['articles']
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
             sources_results = process_sources_results(sources_results_list)
 
     return sources_results
@@ -51,13 +51,12 @@ def process_sources_results(sources_list):
     '''
     sources_results = []
     for source_item in sources_list:
-        source_id = source_item.get('source_id')
-        source_name = source_item.get('source_name')
+        source_id = source_item.get('id')
+        source_name = source_item.get('name')
         description = source_item.get('description')
-        source_url = source_item.get('source_url')
+        source_url = source_item.get('url')
         if source_id:
-            source_obj = Sources(source_id, source_name,
-                                 description, source_url)
+            source_obj = Sources(source_id, source_name, description, source_url)
             sources_results.append(source_obj)
 
     return sources_results

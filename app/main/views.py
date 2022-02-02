@@ -7,7 +7,7 @@ def index():
     ''' view root page function that returns index page data'''
     
     # Get headlines
-    mysources = get_sources('health')
+    mysources = get_sources()
     headlines = get_headlines()
     print(mysources)
     title ='News Updates'

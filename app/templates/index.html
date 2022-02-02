@@ -35,10 +35,11 @@
                <h3 class='text-white text-center'>Our News Sources</h3>
                <div class='d-flex justify-content-center flex-column'>
                 <ul>
-                    {% for mysource in mysource %}
+                    {% for mysource in mysources[:50] %}
                     <h4>
-                        <a href="/article/{{ mysource.article_id}}">
-                            {{mysource.article_id}}
+                        
+                        <a href="{{ mysource.source_url}}">
+                            {{mysource.source_name}} 
                         </a>
                     </h4>
                     {% endfor %}
