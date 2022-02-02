@@ -7,10 +7,10 @@
 {% block content %}
 <h3 class=" text-center text-white" >{{title}} NEWS </h3>
 <div class="container">
-  <div class="card-columns">
+  <div class=" d-flex justify-content-around flex-wrap ">
     {% for category in category %}
 
-    <div class="card">
+    <div class="card m-2">
       <img class="card" src="{{category.article_image}}" alt="Card image cap" size="100px180">
       <div class="card-body">
         <h5 class="card-title">{{category.author}}</h5>
