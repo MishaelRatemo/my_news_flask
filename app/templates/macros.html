@@ -8,7 +8,7 @@
       <p class="card-text">{{ headlines.description |truncate(60) }}</p>
       <div class=" d-flex justify-content-between ">
           <p> by {{ headlines.author}}</p>
-          <p>{{ headlines.time_published }}</p>
+          <p>{{ headlines.time_published |strftime }}</p>
       </div>
       <a href="{{headlines.url}}" class=" text-primary">Read more</a>
     </div>

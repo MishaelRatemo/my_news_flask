@@ -1,8 +1,12 @@
 from flask import Blueprint, Flask
 from config import config_options
 
+import dateutil.parser
+
+
+
 def  create_app(config_name):
-    app = Flask(__name__)
+    app = Flask(__name__) 
     
     #app configuration
     app.config.from_object(config_options[config_name])
@@ -15,4 +19,13 @@ def  create_app(config_name):
     from .requests import config_request
     config_request(app)
     
+    # function to format dates
+    @app.template_filter('strftime')
+    def _jinja2_filter_datetime(date, fmt=None):
+        date = dateutil.parser.parse(date)
+        native = date.replace(tzinfo=None)
+        format='%b %d, %Y'
+        return native.strftime(format) 
+    
     return app
+
