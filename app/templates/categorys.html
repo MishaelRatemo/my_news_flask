@@ -20,7 +20,7 @@
         </a>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Publish date:{{category.time_published.date }}</small>
+        <small class="text-muted">Publish date:{{category.time_published | strftime }}</small>
       </div>
     </div>
     {% endfor %}
