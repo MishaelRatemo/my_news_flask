@@ -30,20 +30,22 @@
             <div class="d-flex justify-content-around container-fluid flex-wrap">
                 {{ macros.displaySourcesList(headlines) }}
             </div>
-
            </div>
            <div class='col-2'>
-               <h3>Source</h3>
-               <ul>
-                   <li>mimi</li>
-                   <li>mimi</li>
-                   <li>mimi</li>
-                   <li>mimi</li>
-                   <li>mimi</li>
-               </ul>
-
+               <h3 class='text-white text-center'>Our News Sources</h3>
+               <div class='d-flex justify-content-center flex-column'>
+                <ul>
+                    {% for mysource in mysource %}
+                    <h4>
+                        <a href="/article/{{ mysource.article_id}}">
+                            {{mysource.article_id}}
+                        </a>
+                    </h4>
+                    {% endfor %}
+                </ul>
+               </div>
+               
            </div>
-
        </div>
 
     </main>

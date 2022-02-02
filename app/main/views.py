@@ -11,13 +11,13 @@ def index():
     headlines = get_headlines()
     print(mysources)
     title ='News Updates'
-    return render_template('index.html', health=mysources, title =title,headlines=headlines)
+    return render_template('index.html', mysources=mysources, title =title,headlines=headlines)
 
-@root.route('/article/<int:id>')
+@root.route('/article/<int:aritcle_id>')
 def article(article_id):
     ''' function for an article to return a page details'''
     articles = article_source(article_id)
-    return render_template('articles.html',articles=articles, id=article_id)
+    return render_template('articles.html',articles=articles, article_id=article_id)
         
 @root.route('/categories/<category_name>')
 def news_category(category_name):
